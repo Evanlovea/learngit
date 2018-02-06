@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>student_manager</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <!-- 管理员登录 -->
+  <servlet>
+  <servlet-name>adminLogin</servlet-name>
+  <servlet-class>myService.AdminLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>adminLogin</servlet-name>
+  <url-pattern>/adminLogin</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 学生登录 -->
+  <servlet>
+  <servlet-name>stuLogin</servlet-name>
+  <servlet-class>myService.StudentLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>stuLogin</servlet-name>
+  <url-pattern>/stuLogin</url-pattern>
+  </servlet-mapping>
+  
+    <!-- 教师登录 -->
+  <servlet>
+  <servlet-name>teaLogin</servlet-name>
+  <servlet-class>myService.TeacherLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>teaLogin</servlet-name>
+  <url-pattern>/teaLogin</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 退出登录 -->
+  <servlet>
+  <servlet-name>logout</servlet-name>
+  <servlet-class>myService.Logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>logout</servlet-name>
+  <url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 添加学生信息 -->
+  <servlet>
+  <servlet-name>addStuInfo</servlet-name>
+  <servlet-class>myService.AddStuInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>addStuInfo</servlet-name>
+  <url-pattern>/addStuInfo</url-pattern>
+  </servlet-mapping>
+  <!-- 添加课程信息 -->
+   <servlet>
+  <servlet-name>addCourseInfo</servlet-name>
+  <servlet-class>myService.AddCourseInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>addCourseInfo</servlet-name>
+  <url-pattern>/addCourseInfo</url-pattern>
+  </servlet-mapping>
+  
+   <!-- 添加教师信息 -->
+   <servlet>
+  <servlet-name>addTeaInfo</servlet-name>
+  <servlet-class>myService.AddTeaInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>addTeaInfo</servlet-name>
+  <url-pattern>/addTeacherInfo</url-pattern>
+  </servlet-mapping>
+  
+   <!-- 通过学号删除学生信息 -->
+   <servlet>
+  <servlet-name>delStuInfoById</servlet-name>
+  <servlet-class>myService.DelStuInfoById</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>delStuInfoById</servlet-name>
+  <url-pattern>/delStuInfoById</url-pattern>
+  </servlet-mapping>
+    
+   <!-- 通过教工号删除教师信息 -->
+   <servlet>
+  <servlet-name>delTeaInfoById</servlet-name>
+  <servlet-class>myService.DelTeaInfoById</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>delTeaInfoById</servlet-name>
+  <url-pattern>/delTeaInfoById</url-pattern>
+  </servlet-mapping>
+  
+   <!-- 通过课程号删除教师信息 -->
+   <servlet>
+  <servlet-name>delCourseInfoById</servlet-name>
+  <servlet-class>myService.DelCourseInfoById</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>delCourseInfoById</servlet-name>
+  <url-pattern>/delCourseInfoById</url-pattern>
+  </servlet-mapping>
+   <!-- 查询课程信息 -->
+   <servlet>
+  <servlet-name>searchCourseInfo</servlet-name>
+  <servlet-class>myService.SearchCourseInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>searchCourseInfo</servlet-name>
+  <url-pattern>/searchCourseInfo</url-pattern>
+  </servlet-mapping>
+     <!-- 课程页数改变 -->
+   <servlet>
+  <servlet-name>CoursePageChange</servlet-name>
+  <servlet-class>myService.CoursePageChange</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>CoursePageChange</servlet-name>
+  <url-pattern>/CoursePageChange</url-pattern>
+  </servlet-mapping>
+  
+    <!-- 教师信息页数改变处理-->
+   <servlet>
+  <servlet-name>teacherInfoPageChange</servlet-name>
+  <servlet-class>myService.TeacherInfoPageChange</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>teacherInfoPageChange</servlet-name>
+  <url-pattern>/teacherInfoPageChange</url-pattern>
+  </servlet-mapping>
+  <!-- 查询教师信息-->
+   <servlet>
+  <servlet-name>searchTeacherInfo</servlet-name>
+  <servlet-class>myService.SearchTeacherInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>searchTeacherInfo</servlet-name>
+  <url-pattern>/searchTeacherInfo</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 学生信息页数改变处理-->
+   <servlet>
+  <servlet-name>studentInfoPageChange</servlet-name>
+  <servlet-class>myService.StudentInfoPageChange</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>studentInfoPageChange</servlet-name>
+  <url-pattern>/studentInfoPageChange</url-pattern>
+  </servlet-mapping>
+  <!-- 查询学生信息-->
+   <servlet>
+  <servlet-name>searchStudentInfo</servlet-name>
+  <servlet-class>myService.SearchStudentInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>searchStudentInfo</servlet-name>
+  <url-pattern>/searchStudentInfo</url-pattern>
+  </servlet-mapping>
+  
+   <!-- 学生登录查询个人信息-->
+   <servlet>
+  <servlet-name>lookMyInfo</servlet-name>
+  <servlet-class>myService.LookMyInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>lookMyInfo</servlet-name>
+  <url-pattern>/lookMyInfo</url-pattern>
+  </servlet-mapping>
+  
+     <!-- 学生修改个人信息(密码)-->
+   <servlet>
+  <servlet-name>updateStuPwd</servlet-name>
+  <servlet-class>myService.UpdateStuPwd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>updateStuPwd</servlet-name>
+  <url-pattern>/updateStuPwd</url-pattern>
+  </servlet-mapping>
+  
+   <!--浏览对应课程学生基本信息和相应的成绩信息-->
+   <servlet>
+  <servlet-name>lookStuAndCouseInfoByTeacherId</servlet-name>
+  <servlet-class>myService.LookStuAndCouseInfoByTeacherId</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>lookStuAndCouseInfoByTeacherId</servlet-name>
+  <url-pattern>/lookStuAndCouseInfoByTeacherId</url-pattern>
+  </servlet-mapping>
+  
+  <!--教师修改相应的课程信息-->
+   <servlet>
+  <servlet-name>modifyCourseInfo</servlet-name>
+  <servlet-class>myService.ModifyCourseInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>modifyCourseInfo</servlet-name>
+  <url-pattern>/modifyCourseInfo</url-pattern>
+  </servlet-mapping>
+</web-app>

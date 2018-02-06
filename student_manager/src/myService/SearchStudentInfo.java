@@ -1,0 +1,78 @@
+package myService;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import myDAO.AdminDAO;
+import myDAOImpl.AdminDAOImpl;
+import myVO.Student;
+import myVO.Teacher;
+
+public class SearchStudentInfo extends HttpServlet {
+
+	/**
+	 * 查询学生信息
+	 */
+	private static final long serialVersionUID = 1L;
+	 @Override
+	    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	        doPost(request, response);
+	    }
+	 @Override
+	    public void doPost(HttpServletRequest request,HttpServletResponse response)throws IOException,ServletException{
+		 response.setCharacterEncoding("UTF-8");
+   response.setContentType("text/html;charset=UTF-8");
+   request.setCharacterEncoding("utf-8");
+   PrintWriter out = response.getWriter();
+		// HttpSession session=request.getSession();
+		 
+ String studentIdString=request.getParameter("studentId");
+ out.print(studentIdString);
+ request.setAttribute("id",studentIdString);
+// session.setAttribute("courseId",courseIdString);
+// out.print("myId"+courseIdString);
+   String sqlString="select stuName from stuinfo where stuId='"+studentIdString+"'";
+	 AdminDAO dao=new AdminDAOImpl();
+	 boolean flag=false;
+	flag=dao.isLegal(sqlString);
+    
+	 out.print("myFlag"+flag);
+if(studentIdString==""){
+	      flag=true;
+  	if(flag){
+  	
+  		 /*AdminDAO adminDAO=new AdminDAOImpl();
+ 		 List<Course>courses=adminDAO.getAllCourseInfo();
+ 		 request.setAttribute("courses", courses);
+ 		 
+ 		 request.getRequestDispatcher("/getAllCourseMess.jsp").forward(request, response);*/
+  		 request.getRequestDispatcher("/getAllStudentMess.jsp").forward(request, response);
+  	 }else{
+ 		 request.setAttribute("msg", "1查询失败");
+  		
+   	 }
+
+  	 
+   }else{
+	 if(flag){
+  		
+  		 AdminDAO adminDAO2=new AdminDAOImpl();
+  		Student student=adminDAO2.getStudentIdById(studentIdString);
+  		 request.setAttribute("student", student);
+  	
+  		request.getRequestDispatcher("/getStudentMessById.jsp").forward(request, response);		
+  		
+  	 }else{
+  		 request.setAttribute("msg", "2查询失败");
+  		 request.getRequestDispatcher("/getMessage.jsp").forward(request, response);
+  	 }
+  	 
+   }
+   
+	 }
+}
